@@ -1,19 +1,19 @@
 -- Step: 01
--- Goal: Create a new database mvc-2209a-P4
+-- Goal: Create a new database Login-Registratie-Mvc-Oop-2209a-P1
 -- **********************************************************************************
 -- Version       Date:           Author:                     Description:
 -- *******       **********      ****************            ******************
--- 01            04-04-2023      Arjan de Ruijter            New
+-- 01            05-09-2023      Arjan de Ruijter            New
 -- **********************************************************************************/
 
 -- Check if the database exists
-DROP DATABASE IF EXISTS `Mvc-2209a-P4`;
+DROP DATABASE IF EXISTS `Login-Registratie-Mvc-Oop-2209a-P1`;
 
 -- Create a new Database
-CREATE DATABASE IF NOT EXISTS `Mvc-2209a-P4`;
+CREATE DATABASE IF NOT EXISTS `Login-Registratie-Mvc-Oop-2209a-P1`;
 
--- Use database Mvc-2209a-P4
-Use `Mvc-2209a-P4`;
+-- Use database Login-Registratie-Mvc-Oop-2209a-P1
+Use `Login-Registratie-Mvc-Oop-2209a-P1`;
 
 
 -- Step: 02
@@ -21,7 +21,7 @@ Use `Mvc-2209a-P4`;
 -- **********************************************************************************
 -- Version       Date:           Author:                     Description:
 -- *******       **********      ****************            ******************
--- 01            04-04-2023      Arjan de Ruijter            New
+-- 01            05-09-2023      Arjan de Ruijter            New
 -- **********************************************************************************/
 
 -- Drop table Instructeur
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Instructeur
 
 -- Version       Date:           Author:                     Description:
 -- *******       **********      ****************            ******************
--- 01            04-04-2023      Arjan de Ruijter            New
+-- 01            05-09-2023      Arjan de Ruijter            New
 -- **********************************************************************************/
 
 INSERT INTO Instructeur
@@ -81,7 +81,7 @@ VALUES
 -- **********************************************************************************
 -- Version       Date:           Author:                     Description:
 -- *******       **********      ****************            ******************
--- 01            04-04-2023      Arjan de Ruijter            New
+-- 01            05-09-2023      Arjan de Ruijter            New
 -- **********************************************************************************/
 
 -- Drop table TypeVoertuig
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS TypeVoertuig
 
 -- Version       Date:           Author:                     Description:
 -- *******       **********      ****************            ******************
--- 01            04-04-2023      Arjan de Ruijter            New
+-- 01            05-09-2023      Arjan de Ruijter            New
 -- **********************************************************************************/
 
 INSERT INTO TypeVoertuig
@@ -132,7 +132,7 @@ VALUES
 -- **********************************************************************************
 -- Version       Date:           Author:                     Description:
 -- *******       **********      ****************            ******************
--- 01            04-04-2023      Arjan de Ruijter            New
+-- 01            05-09-2023      Arjan de Ruijter            New
 -- **********************************************************************************/
 
 -- Drop table Voertuig
@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS Voertuig
 
 -- Version       Date:           Author:                     Description:
 -- *******       **********      ****************            ******************
--- 01            04-04-2023      Arjan de Ruijter            New
+-- 01            05-09-2023      Arjan de Ruijter            New
 -- **********************************************************************************/
 
 INSERT INTO Voertuig
@@ -198,7 +198,7 @@ VALUES
 -- **********************************************************************************
 -- Version       Date:           Author:                     Description:
 -- *******       **********      ****************            ******************
--- 01            04-04-2023      Arjan de Ruijter            New
+-- 01            05-09-2023      Arjan de Ruijter            New
 -- **********************************************************************************/
 
 -- Drop table VoertuigInstructeur
@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS VoertuigInstructeur
 
 -- Version       Date:           Author:                     Description:
 -- *******       **********      ****************            ******************
--- 01            04-04-2023      Arjan de Ruijter            New
+-- 01            05-09-2023      Arjan de Ruijter            New
 -- **********************************************************************************/
 
 INSERT INTO VoertuigInstructeur
