@@ -8,4 +8,11 @@ class RegisterModel
     {
         $this->db = new Database();
     }
+
+    public function registerFormData($post)
+    {
+        $sql = "";
+    }
+
+
 }

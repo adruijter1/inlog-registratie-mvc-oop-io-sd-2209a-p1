@@ -9,13 +9,22 @@ class Register extends BaseController
         $this->registerModel = $this->model('RegisterModel');
     }
 
-    public function index()
-    {        
-        
+    public function index() 
+    {
         $data = [
-            'title' => 'Register pagina',
+            'title' => 'Registreren'
         ];
-
+        
         $this->view('Register/index', $data);
+    }
+
+    public function registerFormData() 
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            $register = $this->registerModel->registerFormData($_POST);
+        }
+        
     }
 }

@@ -5,11 +5,17 @@ class BaseController
 
     public function view($view, $data = [])
     {
+        // Bootstrap header
+        require_once APPROOT . '/views/includes/header.php';
+
         if ( file_exists('../app/views/' . $view . '.php')) {
             require_once('../app/views/' . $view . '.php');
         } else {
             echo 'De view bestaat niet';
         }
+
+        // Bootstrap footer
+        require_once APPROOT . '/views/includes/footer.php';
 
     }
 
