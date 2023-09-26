@@ -247,4 +247,215 @@ VALUES
     ,(3, 4, '2022-08-01', 1, NULL, SYSDATE(6), SYSDATE(6))
     ,(5, 1, '2019-08-30', 1, NULL, SYSDATE(6), SYSDATE(6))
     ,(10, 5, '2020-02-02', 1, NULL, SYSDATE(6), SYSDATE(6));
-   
+
+
+
+-- Step: 10
+-- Goal: Create a new table Persoon
+-- **********************************************************************************
+-- Version       Date:           Author:                     Description:
+-- *******       **********      ****************            ******************
+-- 01            05-09-2023      Arjan de Ruijter            New
+-- **********************************************************************************/
+
+-- Drop table Persoon
+DROP TABLE IF EXISTS Persoon;
+
+CREATE TABLE IF NOT EXISTS Persoon
+(
+    Id                  INT             UNSIGNED        NOT NULL    AUTO_INCREMENT
+   ,Voornaam            VARCHAR(50)                         NULL
+   ,Tussenvoegsel       VARCHAR(10)                         NULL
+   ,Achternaam          VARCHAR(50)                         NULL
+   ,IsActief            BIT                             NOT NULL    DEFAULT 1
+   ,Opmerkingen         VARCHAR(250)                        NULL    DEFAULT NULL
+   ,DatumAangemaakt     DateTime(6)                     NOT NULL
+   ,DatumGewijzigd      DateTime(6)                     NOT NULL
+
+   ,CONSTRAINT      PK_Persoon_Id   PRIMARY KEY CLUSTERED(Id)
+) ENGINE=InnoDB;
+
+
+-- Step: 11
+-- Goal: Fill table Persoon with data
+-- **********************************************************************************
+
+-- Version       Date:           Author:                     Description:
+-- *******       **********      ****************            ******************
+-- 01            05-09-2023      Arjan de Ruijter            New
+-- **********************************************************************************/
+
+INSERT INTO Persoon
+(
+     Voornaam
+    ,Tussenvoegsel
+    ,Achternaam
+    ,IsActief
+    ,Opmerkingen
+    ,DatumAangemaakt
+    ,DatumGewijzigd
+)
+VALUES
+     ('Arjan', 'de', 'Ruijter', 1, NULL, SYSDATE(6), SYSDATE(6));
+    
+
+
+-- Step: 12
+-- Goal: Create a new table Gebruiker
+-- **********************************************************************************
+-- Version       Date:           Author:                     Description:
+-- *******       **********      ****************            ******************
+-- 01            05-09-2023      Arjan de Ruijter            New
+-- **********************************************************************************/
+
+-- Drop table Gebruiker
+DROP TABLE IF EXISTS Gebruiker;
+
+CREATE TABLE IF NOT EXISTS Gebruiker
+(
+    Id                  INT             UNSIGNED        NOT NULL    AUTO_INCREMENT
+   ,PersoonId           INT             UNSIGNED        NOT NULL
+   ,Inlognaam           VARCHAR(50)                     NOT NULL
+   ,Gebruikersnaam      VARCHAR(50)                     NOT NULL
+   ,Wachtwoord          VARCHAR(60)                     NOT NULL
+   ,IsIngelogd          BIT                             NOT NULL    DEFAULT 0
+   ,Ingelogd            DateTime(6)                         NULL
+   ,Uitgelogd           DateTime(6)                         NULL
+   ,IsActief            BIT                             NOT NULL    DEFAULT 1
+   ,Opmerkingen         VARCHAR(250)                        NULL    DEFAULT NULL
+   ,DatumAangemaakt     DateTime(6)                     NOT NULL
+   ,DatumGewijzigd      DateTime(6)                     NOT NULL
+
+   ,CONSTRAINT      PK_Gebruiker_Id   PRIMARY KEY CLUSTERED(Id)
+   ,CONSTRAINT      FK_Gebruiker_Persoon_Id_Persoon_Id  FOREIGN KEY (PersoonId) REFERENCES Persoon(Id)
+) ENGINE=InnoDB;
+
+
+-- Step: 13
+-- Goal: Fill table Gebruiker with data
+-- **********************************************************************************
+
+-- Version       Date:           Author:                     Description:
+-- *******       **********      ****************            ******************
+-- 01            05-09-2023      Arjan de Ruijter            New
+-- **********************************************************************************/
+
+INSERT INTO Gebruiker
+(
+     PersoonId
+    ,Inlognaam
+    ,Gebruikersnaam
+    ,Wachtwoord
+    ,IsIngelogd
+    ,Ingelogd
+    ,Uitgelogd
+    ,IsActief
+    ,Opmerkingen
+    ,DatumAangemaakt
+    ,DatumGewijzigd
+)
+VALUES
+     (1, 'rra', 'rra@mboutrecht.nl', '$2y$10$296RMzqzZqWENu9vyh6axed0DkfsuYkbvoI/AXVowCp/DL6zKiF0i', 1, SYSDATE(6), SYSDATE(6), 1, NULL, SYSDATE(6), SYSDATE(6));
+
+
+
+-- Step: 14
+-- Goal: Create a new table Rol
+-- **********************************************************************************
+-- Version       Date:           Author:                     Description:
+-- *******       **********      ****************            ******************
+-- 01            05-09-2023      Arjan de Ruijter            New
+-- **********************************************************************************/
+
+-- Drop table Rol
+DROP TABLE IF EXISTS Rol;
+
+CREATE TABLE IF NOT EXISTS Rol
+(
+    Id                  INT             UNSIGNED        NOT NULL    AUTO_INCREMENT
+   ,Naam                VARCHAR(50)                     NOT NULL
+   ,IsActief            BIT                             NOT NULL    DEFAULT 1
+   ,Opmerkingen         VARCHAR(250)                        NULL    DEFAULT NULL
+   ,DatumAangemaakt     DateTime(6)                     NOT NULL
+   ,DatumGewijzigd      DateTime(6)                     NOT NULL
+
+   ,CONSTRAINT      PK_Rol_Id   PRIMARY KEY CLUSTERED(Id)
+) ENGINE=InnoDB;
+
+
+-- Step: 15
+-- Goal: Fill table Rol with data
+-- **********************************************************************************
+
+-- Version       Date:           Author:                     Description:
+-- *******       **********      ****************            ******************
+-- 01            05-09-2023      Arjan de Ruijter            New
+-- **********************************************************************************/
+
+INSERT INTO Rol
+(
+     Id
+    ,Naam
+    ,IsActief
+    ,Opmerkingen
+    ,DatumAangemaakt
+    ,DatumGewijzigd
+)
+VALUES
+     (1, 'administrator', 1, NULL, SYSDATE(6), SYSDATE(6));
+
+
+
+
+
+
+-- Step: 16
+-- Goal: Create a new table RolPerGebruiker
+-- **********************************************************************************
+-- Version       Date:           Author:                     Description:
+-- *******       **********      ****************            ******************
+-- 01            05-09-2023      Arjan de Ruijter            New
+-- **********************************************************************************/
+
+-- Drop table Gebruiker
+DROP TABLE IF EXISTS RolPerGebruiker;
+
+CREATE TABLE IF NOT EXISTS RolPerGebruiker
+(
+    Id                  INT             UNSIGNED        NOT NULL    AUTO_INCREMENT
+   ,GebruikerId         INT             UNSIGNED        NOT NULL
+   ,RolId               INT             UNSIGNED        NOT NULL
+   ,IsActief            BIT                             NOT NULL    DEFAULT 1
+   ,Opmerkingen         VARCHAR(250)                        NULL    DEFAULT NULL
+   ,DatumAangemaakt     DateTime(6)                     NOT NULL
+   ,DatumGewijzigd      DateTime(6)                     NOT NULL
+
+   ,CONSTRAINT      PK_RolPerGebruiker_Id   PRIMARY KEY CLUSTERED(Id)
+   ,CONSTRAINT      FK_RolPerGebruiker_PersoonId_Gebruiker_Id  FOREIGN KEY (GebruikerId) REFERENCES Gebruiker(Id)
+   ,CONSTRAINT      FK_RolPerGebruiker_RolId_Rol_Id  FOREIGN KEY (RolId) REFERENCES Rol(Id)
+) ENGINE=InnoDB;
+
+
+-- Step: 17
+-- Goal: Fill table RolPerGebruiker with data
+-- **********************************************************************************
+
+-- Version       Date:           Author:                     Description:
+-- *******       **********      ****************            ******************
+-- 01            05-09-2023      Arjan de Ruijter            New
+-- **********************************************************************************/
+
+INSERT INTO RolPerGebruiker
+(
+     GebruikerId
+    ,RolId
+    ,IsActief
+    ,Opmerkingen
+    ,DatumAangemaakt
+    ,DatumGewijzigd
+)
+VALUES
+     (1, 1, 1, NULL, SYSDATE(6), SYSDATE(6));
+
+
+

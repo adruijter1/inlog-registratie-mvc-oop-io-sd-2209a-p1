@@ -40,5 +40,7 @@ class Database
         return $this->statement->fetch(PDO::FETCH_OBJ);
     }
 
+    
+
 
 }
