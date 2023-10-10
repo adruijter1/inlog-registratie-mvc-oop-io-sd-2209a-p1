@@ -1,55 +1,40 @@
 <div class="container">
-    <div class="row mb-4 mt-3">
+    <div class="row mt-3 mb-3">
         <div class="col-3"></div>
         <div class="col-6">
-            <h3><?= $data['title']; ?></h3>
+            <h1><?= $data['title']; ?></h1>
         </div>
         <div class="col-3"></div>
     </div>
-
 
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-            <form class="row g-3" method="post" action="<?= URLROOT; ?>/Register/registerFormData">
+            <form class="row g-3" method="post" action="<?= URLROOT; ?>/Register/index">
                 <div class="col-md-12">
-                    <label for="inputEmail4" class="form-label">Email</label>
-                    <input name="email" type="email" class="form-control" id="inputEmail4">
+                    <label for="inputEmail" class="form-label">E-mail</label>
+                    <input name="email" type="email" class="form-control" id="inputEmail">
                 </div>
-                
                 <div class="col-12">
-                    <label for="inputFirstname" class="form-label">Voornaam</label>
-                    <input name="firstname" type="text" class="form-control" id="inputFirstname" placeholder="">
+                    <label for="inputFirstname" class="form-label">Firstname</label>
+                    <input name="firstname" type="text" class="form-control" id="inputFirstname">
                 </div>
-
                 <div class="col-12">
                     <label for="inputInfix" class="form-label">Tussenvoegsel</label>
-                    <input name="infix" type="text" class="form-control" id="inputInfix" placeholder="">
+                    <input name="infix" type="text" class="form-control" id="inputInfix">
                 </div>
-
                 <div class="col-12">
                     <label for="inputLastname" class="form-label">Achternaam</label>
-                    <input name="lastname" type="text" class="form-control" id="inputLastname" placeholder="">
+                    <input name="lastname" type="text" class="form-control" id="inputLastname">
                 </div>
-
-                <div class="col-12 d-grid gap-2">
-                    <button name="button" type="submit" class="btn btn-primary" type="button" value="submit">Registreer</button>
+                <div class="col-12 d-grid">
+                    <button name="submit" type="submit" class="btn btn-primary">Registreer</button>
                 </div>
-                </form>
-
-
-
+            </form>
         </div>
         <div class="col-3"></div>
     </div>
 </div>
-
-
-
-
-
-
-
 
 
     

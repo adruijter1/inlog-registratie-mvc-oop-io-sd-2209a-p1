@@ -50,6 +50,11 @@ class Database
         $this->statement->bindValue($parameter, $value, $type);
     }
 
+    public function lastInsertId() 
+    {
+        return $this->dbHandler->lastInsertId();
+    }
+
     
 
 
