@@ -36,7 +36,7 @@ class RegisterModel
         $persoonId = $this->db->lastInsertId();
 
         $passwordHash = password_hash($post['email'], PASSWORD_BCRYPT);
-        $passwordHash = str_replace('/', '#', $passwordHash);
+        $passwordHashReplace = str_replace('/', '#', $passwordHash);
 
         $sql = "INSERT INTO Gebruiker (PersoonId,
                                        Inlognaam,
@@ -94,7 +94,7 @@ class RegisterModel
                 $this->db->execute();
 
                 return array('gebruikerId' => $gebruikerId,
-                             'passwordHash' => $passwordHash,
+                             'passwordHashReplace' => $passwordHashReplace,
                              'email' => $post['email']);
     }
 
@@ -129,7 +129,6 @@ class RegisterModel
             $this->db->bind(':passwordHash', $passwordHash, PDO::PARAM_STR);
 
             $this->db->execute();
-
         }
     }
 

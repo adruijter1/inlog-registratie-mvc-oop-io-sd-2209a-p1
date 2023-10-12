@@ -38,7 +38,7 @@ class Register extends BaseController
     {
         $to = $registerInfo['email'];
         $gebruikerId = $registerInfo['gebruikerId'];
-        $passwordHash = $registerInfo['passwordHash'];
+        $passwordHashReplace = $registerInfo['passwordHashReplace'];
         $subject = 'Activatielink voor uw account';
 
         $message = '<!DOCTYPE html>
@@ -51,7 +51,7 @@ class Register extends BaseController
                     <body>
                     <h2>Beste Gebruiker</h2>
                     <p>U heeft zich geregistreerd voor de site ...</p>
-                    <p>Klik <a href="http://www.login-registratie-mvc-oop-2209a-p1.nl/Register/activeren/' . $gebruikerId . '/' . $passwordHash . '">hier</a> voor het wijzigen en activeren van uw account</p>
+                    <p>Klik <a href="http://www.login-registratie-mvc-oop-2209a-p1.nl/Register/activeren/' . $gebruikerId . '/' . $passwordHashReplace . '">hier</a> voor het wijzigen en activeren van uw account</p>
                     <p>Bedankt voor het registreren</p>
                     <p>Met vriendelijke groet,</p>
                     <p>Arjan de Ruijter</p>
